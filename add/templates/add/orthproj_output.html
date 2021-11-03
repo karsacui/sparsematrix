@@ -1,0 +1,142 @@
+
+{% extends "add/base.html" %}
+
+{% block content %}
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#drop1"><i class="fa fa-fw fa-wrench"></i> Projects <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="drop1" class="collapse">
+                                                <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#drop2"><i class="fa fa-fw fa-arrows"></i> Linear Algebra <i class="fa fa-fw fa-caret-down"></i></a>
+						<li>
+                        <ul id="drop2" class="collapse" >
+                            
+                                <a href="#" class="projectlist">   Orthogonal Projection Matrix Calculator</a>
+                            
+							
+			
+                        </ul>
+						</li>
+                    </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://github.com/tyharg" target="_blank"><i class="fa fa-fw fa-code-fork"></i> Github</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{ page_name }}<small>{{ section }}</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>   Matrix Calculator Output
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+
+
+
+				<div class="row">
+				<div class="col-lg-2">
+{% if valid_output == True %}
+
+
+
+{#<table class="table table-bordered"><tr>#}
+{#    {% for i, j in P_zip %}#}
+{#		<td class="table_cell">#}
+{#		#}
+{#			{% if j != 1 %}#}
+{#			<sup>{{ i }}</sup>  /   <sub>{{ j }}</sub>#}
+{#			{% else %}#}
+{#			{{ i }}#}
+{#			{% endif %}#}
+{#		#}
+{#		#}
+{#		</td>#}
+{#			{% if forloop.last %}#}
+{#				</tr>#}
+{#			{% else %}#}
+{#		#}
+{#		#}
+{#				{% if forloop.counter|divisibleby:P_cols and forloop.counter != 1 %}#}
+{#				</tr><tr>#}
+{#				{% endif %}#}
+{#			#}
+{#			{% endif %}#}
+{#		#}
+{#		#}
+{#    {% endfor %}#}
+{#</table>#}
+
+<table class="table table-bordered"><tr>
+    {% for i in numbers %}
+
+		<td class="table_cell">
+
+			{{ i }}
+
+
+		</td>
+			{% if forloop.last %}
+				</tr>
+			{% else %}
+
+
+				{% if forloop.counter|divisibleby:P_cols and forloop.counter != 1 %}
+				</tr><tr>
+				{% endif %}
+
+			{% endif %}
+
+
+    {% endfor %}
+</table>
+
+</div>
+
+
+{% else %}
+<div class="alert alert-warning">
+	<strong>Something went wrong: </strong>{{ out }}
+</div>
+{% endif %}
+
+</br>
+
+
+<div class="col-lg-12">
+<form action="/add/">
+    <input type="submit" value="Reset" class="btn-danger" id="reset"/>
+</form>
+</div>
+
+
+
+
+
+  
+
+{% endblock content %}

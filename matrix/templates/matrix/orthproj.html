@@ -1,0 +1,145 @@
+
+{% extends "matrix/base.html" %}
+
+{% block content %}
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+{#            <div class="collapse navbar-collapse navbar-ex1-collapse">#}
+{#                <ul class="nav navbar-nav side-nav">#}
+{#                    <li>#}
+{#                        <a href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>#}
+{#                    </li>#}
+{##}
+{#                    <li>#}
+{#                        <a href="javascript:;" data-toggle="collapse" data-target="#drop1"><i class="fa fa-fw fa-wrench"></i> Projects <i class="fa fa-fw fa-caret-down"></i></a>#}
+{#                        <ul id="drop1" class="collapse">#}
+{#                                                <li>#}
+{#                        <a href="javascript:;" data-toggle="collapse" data-target="#drop2"><i class="fa fa-fw fa-arrows"></i> Linear Algebra <i class="fa fa-fw fa-caret-down"></i></a>#}
+{#						<li>#}
+{#                        <ul id="drop2" class="collapse" >#}
+{#                            #}
+{#                                <a href="#" class="projectlist">    Orthogonal Projection Matrix Calculator</a>#}
+{#                            #}
+{#							#}
+{#			#}
+{#                        </ul>#}
+{#						</li>#}
+{#                    </li>#}
+{##}
+{#                        </ul>#}
+{#                    </li>#}
+{#                    <li>#}
+{#                        <a href="https://github.com/tyharg" target="_blank"><i class="fa fa-fw fa-code-fork"></i> Github</a>#}
+{#                    </li>#}
+{##}
+{#                </ul>#}
+{#            </div>#}
+{#            <!-- /.navbar-collapse -->#}
+{#        </nav>#}
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            {{ page_name }}<small>{{ section }}</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                               <i class="fa fa-angle-right" aria-hidden="true"></i> Matrix Calculator Input
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+
+			<div class="row">
+				<div class="col-lg-6">
+					
+					<div class="col-md-3">
+					<span>Rows: </span>
+					<select name='Rows' class="form-control" id ="val_m">
+						<option title='mn1' value='1'>1</option>
+						<option title='mn2' value='2'>2</option>
+						<option title='mn3' value='3'>3</option>
+						<option title='mn4' value='4'>4</option>
+						<option title='mn5' value='5'>5</option>
+						<option title='mn6' value='6'>6</option>
+					</select>
+					</div>
+					
+					
+					<div class="col-md-3">
+					<span>Columns: </span>
+					<select name='Columns' class="form-control"  id ="val_n">
+						<option title='mn1' value='1'>1</option>
+						<option title='mn2' value='2'>2</option>
+						<option title='mn3' value='3'>3</option>
+						<option title='mn4' value='4'>4</option>
+						<option title='mn5' value='5'>5</option>
+						<option title='mn6' value='6'>6</option>
+					</select>
+					
+					</div>
+					
+					<div class="col-lg-3">
+						<button id="set" class="btn-primary">Set Matrix</button>
+					</div>
+					
+					</div>
+					
+                </div>
+
+
+</br>
+
+<div class="row">
+
+
+
+
+
+<div class="col-lg-6">
+<form id="matrix_input"></form>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-lg-12">
+<form action="output/" method="post" id="mat_vals">
+{% csrf_token %}
+<div class="hide_serializer">
+{{ form }}
+</div>
+</br>
+ <input id="get" class="btn-primary" type="submit" value="Calculate" />
+</form>
+</div>
+
+<script>
+
+
+
+
+</script>
+
+
+
+
+
+
+
+  
+
+{% endblock content %}
