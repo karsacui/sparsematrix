@@ -185,8 +185,9 @@ def get_digits(request):
 				P = At
 				P_rows = P.shape[0]
 				P_cols = outsm.length
+				print("P_cols")
+				print(P_cols)
 				# P_cols = P.shape[1]
-
 
 
 				#Parallel arrays hold numerator and denominators
@@ -224,8 +225,9 @@ def get_digits(request):
 
 			#Invalid output response: something went wrong within the calculation
 			except:
-				out = ' Perhaps your matrix rows are linearly dependent?'
 
+				# out = ' Perhaps your matrix rows are linearly dependent?'
+				out = ' Something wrong?'
 				valid_output = False
 				return render(request, 'matrix/orthproj_output.html', {
 				'page_name': page_name,
